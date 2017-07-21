@@ -19,7 +19,7 @@ package net.openhft.chronicle.core.io;
 import net.openhft.chronicle.core.Jvm;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sun.misc.Cleaner;
+import jdk.internal.ref.Cleaner;
 import sun.nio.ch.DirectBuffer;
 import sun.reflect.Reflection;
 
@@ -76,7 +76,9 @@ public enum IOTools {
     public static URL urlFor(String name) throws FileNotFoundException {
         ClassLoader classLoader;
         try {
-            classLoader = Reflection.getCallerClass().getClassLoader();
+            // @todo this is only quickfix. Change value 10 to something more meaningful
+            // or use another API
+            classLoader = Reflection.getCallerClass(10).getClassLoader();
         } catch (Throwable e) {
             classLoader = Thread.currentThread().getContextClassLoader();
         }

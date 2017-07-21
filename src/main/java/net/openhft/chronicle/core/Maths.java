@@ -222,7 +222,7 @@ public enum Maths {
 
     public static long hash64(@NotNull String s) {
         long hash = 0;
-        final char[] chars = StringUtils.extractChars(s);
+        final byte[] chars = StringUtils.extractChars(s);
         for (int i = 0, len = s.length(); i < len; i++)
             hash = hash * 841248317 + chars[i];
         return agitate(hash);
@@ -230,7 +230,7 @@ public enum Maths {
 
     public static long hash64(@NotNull StringBuilder s) {
         long hash = 0;
-        final char[] chars = StringUtils.extractChars(s);
+        final byte[] chars = StringUtils.extractChars(s);
         for (int i = 0, len = s.length(); i < len; i++)
             hash = hash * 841248317 + chars[i];
         return agitate(hash);
