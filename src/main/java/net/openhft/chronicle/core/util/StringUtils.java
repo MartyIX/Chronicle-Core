@@ -97,9 +97,9 @@ public enum StringUtils {
         if (cs == null) return false;
         int length = cs.length();
         if (s.length() != length) return false;
-        char[] chars = StringUtils.extractChars(s);
+
         for (int i = 0; i < length; i++)
-            if (chars[i] != cs.charAt(i))
+            if (s.charAt(i) != cs.charAt(i))
                 return false;
         return true;
     }
@@ -121,11 +121,11 @@ public enum StringUtils {
         return o == null ? null : o.toString();
     }
 
-    public static char[] extractChars(StringBuilder sb) {
+    public static byte[] extractChars(StringBuilder sb) {
         return OS.memory().getObject(sb, SB_VALUE_OFFSET);
     }
 
-    public static char[] extractChars(String s) {
+    public static byte[] extractChars(String s) {
         return OS.memory().getObject(s, S_VALUE_OFFSET);
     }
 

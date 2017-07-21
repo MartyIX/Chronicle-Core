@@ -19,7 +19,7 @@ package net.openhft.chronicle.core;
 import net.openhft.chronicle.core.onoes.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sun.misc.VM;
+import jdk.internal.misc.VM;
 
 import java.lang.reflect.Field;
 import java.util.Collections;
