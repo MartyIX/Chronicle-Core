@@ -57,6 +57,12 @@ public class StringUtilsTest extends TestCase {
     }
 
     @Test
+    public void testCreateNewString() throws Exception {
+        String s = StringUtils.newString(new char[]{'A', 'B', 'C'});
+        assertEquals("ABC", s);
+    }
+
+    @Test
     public void testParseDouble() throws IOException {
         for (double d : new double[]{Double.NaN, Double.NEGATIVE_INFINITY, Double
                 .POSITIVE_INFINITY, 0.0, -1.0, 1.0, 9999.0}) {

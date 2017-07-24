@@ -135,14 +135,16 @@ public enum StringUtils {
 
     @NotNull
     public static String newString(char[] chars) {
-        //noinspection RedundantStringConstructorCall
-        @NotNull String str = new String();
-        try {
-            S_VALUE.set(str, chars);
-            return str;
-        } catch (Exception e) {
-            throw new AssertionError(e);
-        }
+        return new String(chars);
+
+        // Does not work in JDK 9
+        // @NotNull String str = new String();
+        // try {
+        //     S_VALUE.set(str, chars);
+        //     return str;
+        // } catch (Exception e) {
+        //     throw new AssertionError(e);
+        // }
     }
 
     @Nullable
