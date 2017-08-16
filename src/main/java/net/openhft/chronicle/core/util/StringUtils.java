@@ -121,6 +121,37 @@ public enum StringUtils {
         return o == null ? null : o.toString();
     }
 
+
+    public static byte getStringCoder(String str) {
+        byte coder = -1;
+
+        try {
+            Field f = str.getClass().getDeclaredField("coder");
+            f.setAccessible(true);
+            coder = f.getByte(str);
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
+            System.out.println("ERROR: NoSuchFieldException");
+            e.printStackTrace();
+        }
+
+        return coder;
+    }
+
+    public static byte getStringCoder(StringBuilder str) {
+        byte coder = -1;
+
+        try {
+            Field f = str.getClass().getDeclaredField("coder");
+            f.setAccessible(true);
+            coder = f.getByte(str);
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
+            System.out.println("ERROR: NoSuchFieldException");
+            e.printStackTrace();
+        }
+
+        return coder;
+    }
+
     public static byte[] extractChars(StringBuilder sb) {
         return OS.memory().getObject(sb, SB_VALUE_OFFSET);
     }
